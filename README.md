@@ -8,11 +8,11 @@ This R script was developed as a study tool for students in the Birds of Souther
 
 > ⚠️ Note: This script opens content in your browser and has only been tested with Google Chrome.
 
-# Usage
+# Tutorial
 
 To use this script, download the `species_list.csv` file and the R Markdown file (`bird_id_quiz.Rmd`) and place them in the **same folder** on your computer.
-
 Then, open the R Markdown file in RStudio and follow the step-by-step instructions provided in the document.
+
 
 # Credits
 
