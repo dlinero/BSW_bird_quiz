@@ -1,0 +1,363 @@
+---
+title: "bird_id_quiz"
+author: "Daniela Linero Triana"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Bird Quiz (Photos + Sounds)
+
+This R script was developed as a study tool for students in the Birds of Southern Wisconsin course at the University of Wisconsin–Madison. The script does the following:
+
+- Retrieves publicly available **photo links** from the [All About Birds](https://www.allaboutbirds.org/guide/) photo galleries
+- Retrieves publicly available **sound links** ([Macaulay Library assets](https://www.macaulaylibrary.org/)) from the [All About Birds](https://www.allaboutbirds.org/guide/) sound pages.
+- Runs a simple **quiz** that shows one random item and reveals the answer after you press ENTER.
+
+> ⚠️ Note: This script opens content in your browser and has only been tested with Google Chrome.
+
+## 1. First, we will load the libraries necessary to run the code and install them if you don’t have them already.
+
+```{r, message=FALSE, warning=FALSE}
+# List of required packages
+packages <- c("rvest", "httr", "dplyr", "stringr", "utils")
+
+# Install any packages that are not already installed
+installed <- packages %in% rownames(installed.packages())
+if (any(!installed)) {
+  install.packages(packages[!installed])
+}
+
+# Load libraries
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+## 2. Then, we will load the list of birds we will be learning throughout the semester.
+
+The shared CSV file also includes fields indicating whether you are required to learn both male and female plumages, as well as the species’ song and/or call.
+
+```{r}
+list_file <- read.csv("species_list.csv", stringsAsFactors = FALSE)
+
+```
+
+## 3. Now, we are going to define the functions that will retrieve the photo and sound links and specify how the quiz will be run.
+
+```{r}
+# Not-in operator (replacement for %nin%)
+`%nin%` <- function(x, table) !(x %in% table)
+
+# Scrape pictures
+scrape_pictures <- function(list_species, weeks = 1:20, reduced_test = FALSE) {
+  
+  list_species <- list_species %>%
+    filter(Week %in% weeks) %>%
+    distinct(Species.name, .keep_all = TRUE) %>%
+    mutate(
+      species = str_replace_all(Species.name, " ", "_"),
+      species = str_replace_all(species, "'", "")
+    )
+  
+  results <- data.frame(
+    final_link = character(0),
+    image_alts = character(0),
+    species_name = character(0),
+    stringsAsFactors = FALSE
+  )
+  
+  for (i in 1:nrow(list_species)) {
+    message("Scraping pictures: ", i, "/", nrow(list_species))
+    
+    selected_species <- list_species$species[i]
+    my_link <- paste0("https://www.allaboutbirds.org/guide/", selected_species, "/photo-gallery")
+    
+    page <- read_html(my_link)
+    image_nodes <- html_nodes(page, "img")
+    image_urls  <- html_attr(image_nodes, "data-interchange")
+    image_alts  <- html_attr(image_nodes, "alt")
+    
+    if (length(image_urls) == 0) next
+    
+    results_i <- data.frame(image_urls = image_urls, image_alts = image_alts, stringsAsFactors = FALSE) %>%
+      rowwise() %>%
+      mutate(
+        first_word = (str_split(image_alts, " ")[[1]][1]),
+        link1      = suppressWarnings((str_split(image_urls, ",")[[1]][7]))
+      ) %>%
+      ungroup() %>%
+      mutate(
+        final_link = str_remove(link1, fixed(" [")),
+        first_word = str_replace_all(first_word, "'", "")
+      ) %>%
+      filter(first_word == str_split(selected_species, "_")[[1]][1]) %>%
+      filter(grepl("photo", final_link)) %>%
+      filter(!grepl("juvenile|immature|nonbreeding|\\bchick\\b|first|second|third",
+                    image_alts, ignore.case = TRUE)) %>%
+      mutate(
+        final_link = str_replace(final_link, "240px", "1280px"),
+        species_name = list_species$Species.name[i]
+      ) %>%
+      select(final_link, image_alts, species_name)
+    
+    if (nrow(results_i) == 0) next
+    
+    # Remove duplicated
+    results_i <- results_i[!duplicated(results_i$final_link), ]
+    
+    # reduced test (2 photos per species)
+    if (isTRUE(reduced_test) && nrow(results_i) > 0) {
+      results_i <- results_i[sample(seq_len(nrow(results_i)), size = min(2, nrow(results_i))), , drop = FALSE]
+    }
+    
+    results <- bind_rows(results, results_i)
+  }
+  
+  if (nrow(results) == 0) stop("No pictures found after scraping/filters.")
+  results
+}
+
+# Open sounds
+open_audio_player_page <- function(audio_url) {
+  html <- paste0(
+    '<!doctype html><html><head><meta charset="utf-8"><title></title></head>',
+    '<body style="margin:0;padding:16px;font-family:sans-serif">',
+    '<audio controls preload="metadata" src="', audio_url, '"></audio>',
+    '</body></html>'
+  )
+  f <- tempfile(fileext = ".html")
+  writeLines(html, f)
+  browseURL(f)
+}
+
+# Get sound links
+get_audio_links <- function(species_slug) {
+  my_link <- paste0("https://www.allaboutbirds.org/guide/", species_slug, "/sounds")
+  page <- read_html(my_link)
+  
+  hrefs <- page %>%
+    html_nodes("a") %>%
+    html_attr("href") %>%
+    na.omit()
+  
+  audio_links <- hrefs[
+    str_detect(hrefs, "macaulaylibrary\\.org/(asset|audio)/\\d+") &
+      !str_detect(hrefs, "macaulaylibrary\\.org/video/")
+  ] %>%
+    unique()
+  
+  head(audio_links, 2)
+}
+
+# Extract audio asset IDs
+extract_asset_id <- function(ml_link) {
+  str_match(ml_link, "/(?:asset|audio)/(\\d+)")[,2]
+}
+
+# Scrape sounds
+scrape_sounds <- function(list_species, weeks = 1:20) {
+  
+  list_species <- list_species %>%
+    filter(Week %in% weeks) %>%
+    distinct(Species.name, .keep_all = TRUE) %>%
+    mutate(
+      species = str_replace_all(Species.name, " ", "_"),
+      species = str_replace_all(species, "'", "")
+    )
+  
+  # keep only species that have Sound == "Yes" if column exists
+  if ("Sound" %in% names(list_species)) {
+    list_species <- list_species %>% filter(Sound == "Yes")
+  }
+  
+  results <- data.frame(
+    audio_url = character(0),
+    species_name = character(0),
+    ml_link = character(0),
+    stringsAsFactors = FALSE
+  )
+  
+  for (i in 1:nrow(list_species)) {
+    message("Scraping sounds: ", i, "/", nrow(list_species))
+    
+    slug <- list_species$species[i]
+    ml_links <- get_audio_links(slug)
+    if (length(ml_links) == 0) next
+    
+    ids <- vapply(ml_links, extract_asset_id, character(1))
+    ids <- ids[!is.na(ids)]
+    if (length(ids) == 0) next
+    
+    audio_urls <- paste0("https://cdn.download.ams.birds.cornell.edu/api/v1/asset/", ids)
+    
+    tmp <- data.frame(
+      audio_url = audio_urls,
+      species_name = list_species$Species.name[i],
+      ml_link = ml_links[seq_along(audio_urls)],
+      stringsAsFactors = FALSE
+    )
+    
+    results <- bind_rows(results, tmp)
+  }
+  
+  if (nrow(results) == 0) stop("No sounds found after scraping/filters.")
+  results
+}
+
+# track which items have already been shown
+already_shown_pics  <- data.frame(final_link = character(0), stringsAsFactors = FALSE)
+already_played_snds <- data.frame(audio_url  = character(0), stringsAsFactors = FALSE)
+
+# Show one random picture
+show_one_picture <- function(results_pics) {
+  remaining <- results_pics %>% filter(final_link %nin% already_shown_pics$final_link)
+  if (nrow(remaining) == 0) stop("No new pictures left.")
+  
+  item <- remaining[sample(seq_len(nrow(remaining)), 1), ]
+  browseURL(item$final_link)
+  
+  invisible(readline(prompt = "Press ENTER to reveal the answer... "))
+  cat("\nAnswer:", item$species_name, "\n")
+  cat("Caption/alt:", item$image_alts, "\n\n")
+  
+  already_shown_pics <<- bind_rows(already_shown_pics, data.frame(final_link = item$final_link))
+  invisible(item)
+}
+
+# Show one random sound
+show_one_sound <- function(results_sounds) {
+  remaining <- results_sounds %>% filter(audio_url %nin% already_played_snds$audio_url)
+  if (nrow(remaining) == 0) stop("No new sounds left.")
+  
+  item <- remaining[sample(seq_len(nrow(remaining)), 1), ]
+  open_audio_player_page(item$audio_url)
+  
+  invisible(readline(prompt = "Press ENTER to reveal the answer... "))
+  cat("\nAnswer:", item$species_name, "\n")
+  cat("Macaulay link:", item$ml_link, "\n\n")
+  
+  already_played_snds <<- bind_rows(already_played_snds, data.frame(audio_url = item$audio_url))
+  invisible(item)
+}
+
+bird_quiz <- function(list_species,
+                      weeks = 1:20,
+                      reduced_test = FALSE,
+                      mode = c("pictures", "sounds"),
+                      results_pics = NULL,
+                      results_sounds = NULL) {
+  
+  mode <- match.arg(mode)
+  
+  if (mode == "pictures") {
+    if (is.null(results_pics)) stop("Provide results_pics (scraped once) to show pictures.")
+    show_one_picture(results_pics)
+    
+  } else {
+    if (is.null(results_sounds)) stop("Provide results_sounds (scraped once) to show sounds.")
+    show_one_sound(results_sounds)
+  }
+}
+
+```
+
+## 4. Obtain picture and sound links.
+
+The following functions will ask you to define the following parameters:
+
+- **`list_species`**: The file containing the list of species, defined at the beginning of the script as `list_file`.
+- **`weeks`**: The week or weeks of the semester whose birds you want to include (e.g., Week 1 corresponds to winter residents).
+- **`reduced_test`**: Whether you want a reduced test (`TRUE`) or not (`FALSE`) for pictures. A reduced test will show only two pictures per species (male and female if dimorphic), whereas a full test will show around seven pictures per species.
+
+
+```{r, echo =FALSE, results='hide'}
+results_pics = scrape_pictures(list_file, weeks = 1, reduced_test = TRUE)
+results_sounds = scrape_sounds(list_file, weeks = 1)
+```
+
+## 5. Finally, we will run the quiz. 
+
+The following `bird_quiz` function will ask you to define the following parameters:
+
+- **`list_species`**: The file containing the list of species, defined at the beginning of the script as `list_file`.
+- **`weeks`**: The week or weeks of the semester whose birds you want to include (e.g., Week 1 corresponds to winter residents).
+- **`reduced_test`**: Whether you want a reduced test (`TRUE`) or not (`FALSE`). A reduced test will show only two pictures per species (male and female if dimorphic), whereas a full test will show around seven pictures per species.
+- **`mode`**: Whether you want pictures or sounds
+- **`results_pics`**: Table that stores the picture links
+- **`results_sounds`**: Table that stores the sound links
+
+Both pictures and sounds will open in your default browser. Here are a few examples that show you how the function works:
+
+### Example 1: Pictures of all Week 1 birds (winter residents) with a reduced test.
+
+```{r, eval=FALSE}
+bird_quiz(list_file, weeks = 1, mode = "pictures", reduced_test = TRUE, results_pics = results_pics)
+```
+
+
+### Example 2: Sounds of birds from week 1 to week 3.
+
+```{r, echo =FALSE, results='hide'}
+
+# Obtain sound links from week 1 to week 3
+results_sounds = scrape_sounds(list_file, weeks = 1:3)
+
+```
+
+```{r, eval=FALSE}
+# Run quiz
+bird_quiz(list_file, weeks = 1:3, mode = "sounds", results_sounds = results_sounds)
+```
+
+
+### Example 3: Pictures and sounds of all birds from all weeks, without a reduced test.
+
+```{r, echo =FALSE, results='hide'}
+
+# Obtain pictures and sound links from week 1 to week 13
+results_pics = scrape_pictures(list_file, weeks = 1:13, reduced_test = FALSE)
+results_sounds = scrape_sounds(list_file, weeks = 1:13)
+
+```
+
+```{r, eval=FALSE}
+# Pictures
+bird_quiz(list_file, weeks = 1:13, mode = "pictures", reduced_test = FALSE, results_pics = results_pics)
+```
+
+```{r, eval=FALSE}
+# Sounds
+bird_quiz(list_file, weeks = 1:3, mode = "sounds", results_sounds = results_sounds)
+```
+
+
+# Credits
+
+This script was developed by [*Daniela Linero Triana*](https://orcid.org/0000-0002-5556-6250)
+
+# Citation
+
+If you use this script in teaching materials, research, or publications,
+please cite or acknowledge the author as:
+
+> Linero-Triana, D. (2026). *Bird ID Quiz* (R script). GitHub repository: <https://github.com/dlinero/BSW_bird_quiz>
+
+# Disclaimer and Terms of Use
+
+This project is intended for **personal and educational use only**.
+
+The script does **not download, store, or redistribute** any images or audio files.
+All media content is hosted by and remains the property of the **Cornell Lab of Ornithology**
+and its partners (e.g., All About Birds, Macaulay Library).
+
+This tool simply retrieves publicly available links and opens them in the user’s web browser.
+
+Users are responsible for complying with the
+[Cornell Lab of Ornithology Terms of Use](https://www.birds.cornell.edu/home/terms-of-use/)
+and any applicable third-party terms when using this script.
+
+This project is **not affiliated with, endorsed by, or sponsored by**
+the Cornell Lab of Ornithology.

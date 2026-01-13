@@ -1,0 +1,254 @@
+Species name,Male and female,Sound,Week,Theme
+American Coot,No,Yes,1,Winter resident species
+American Crow,No,Yes,1,Winter resident species
+American Goldfinch,Yes,Yes,1,Winter resident species
+American Robin,No,Yes,1,Winter resident species
+Black-capped Chickadee,No,Yes,1,Winter resident species
+Blue Jay,No,Yes,1,Winter resident species
+Brown Creeper,No,Yes,1,Winter resident species
+Cedar Waxwing,No,Yes,1,Winter resident species
+Dark-eyed Junco,No,Yes,1,Winter resident species
+Downy Woodpecker,Yes,Yes,1,Winter resident species
+European Starling,No,Yes,1,Winter resident species
+Hairy Woodpecker,Yes,Yes,1,Winter resident species
+Horned Lark,No,Yes,1,Winter resident species
+House Finch,Yes,Yes,1,Winter resident species
+House Sparrow,Yes,Yes,1,Winter resident species
+Mourning Dove,No,Yes,1,Winter resident species
+Northern Cardinal,Yes,Yes,1,Winter resident species
+Red-bellied Woodpecker,Yes,Yes,1,Winter resident species
+Red-breasted Nuthatch,No,Yes,1,Winter resident species
+Redpoll,No,No,1,Winter resident species
+Rock Pigeon,No,Yes,1,Winter resident species
+Tufted Titmouse,No,Yes,1,Winter resident species
+White-breasted Nuthatch,No,Yes,1,Winter resident species
+American Black Duck,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+American Wigeon,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Blue-winged Teal,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Bufflehead,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Cackling Goose,No,Yes,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Canada Goose,No,Yes,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Canvasback,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Common Goldeneye,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Common Loon,No,Yes,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Common Merganser,Yes,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Eared Grebe,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Gadwall,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Greater Scaup,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Greater White-fronted Goose,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Green-winged Teal,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Hooded Merganser,Yes,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Horned Grebe,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Lesser Scaup,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Mallard,Yes,Yes,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Mute Swan,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Northern Pintail,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Northern Shoveler,Yes,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Pied-billed Grebe,No,Yes,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Red-breasted Merganser,Yes,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Redhead,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Red-necked Grebe,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Ring-necked Duck,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Ruddy Duck,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Snow Goose,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Trumpeter Swan,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Tundra Swan,No,No,2,"Anseriformes, Gaviiformes and Podicipediformes"
+Wood Duck,Yes,Yes,2,"Anseriformes, Gaviiformes and Podicipediformes"
+American Kestrel,Yes,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Bald Eagle,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Barred Owl,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Broad-winged Hawk,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Coopers Hawk,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Eastern Screech-Owl,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Great Horned Owl,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Loggerhead Shrike,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Long-eared Owl,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Merlin,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Northern Harrier,Yes,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Northern Saw-whet Owl,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Northern Shrike,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Osprey,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Peregrine Falcon,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Red-shouldered Hawk,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Red-tailed Hawk,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Rough-legged Hawk,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Sharp-shinned Hawk,No,Yes,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Short-eared Owl,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Snowy Owl,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+Turkey Vulture,No,No,3,"Accipitriformes, Falconiformes, Strigiformes and Passeriformes"
+American Bittern,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+American Coot,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+American White Pelican,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Black-crowned Night Heron,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Common Gallinule,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Double-crested Cormorant,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Great Blue Heron,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Great Egret,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Green Heron,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Least Bittern,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Northern Bobwhite,Yes,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Ring-necked Pheasant,Yes,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Ruffed Grouse,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Sandhill Crane,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Snowy Egret,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Sora,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Virginia Rail,No,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Whooping Crane,No,No,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+Wild Turkey,Yes,Yes,4,"Suliformes, Pelecaniformes, Galliformes and Gruiformes"
+American Goldfinch,Yes,Yes,5,Passeriformes (Sparrows and finches)
+American Tree Sparrow,No,No,5,Passeriformes (Sparrows and finches)
+Chipping Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Clay-colored Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Dark-eyed Junco,No,Yes,5,Passeriformes (Sparrows and finches)
+Dickcissel,No,Yes,5,Passeriformes (Sparrows and finches)
+Eastern Towhee,No,Yes,5,Passeriformes (Sparrows and finches)
+Field Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Fox Sparrow,No,No,5,Passeriformes (Sparrows and finches)
+Grasshopper Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Henslows Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+House Finch,Yes,Yes,5,Passeriformes (Sparrows and finches)
+House Sparrow,Yes,Yes,5,Passeriformes (Sparrows and finches)
+Indigo Bunting,No,Yes,5,Passeriformes (Sparrows and finches)
+Lapland Longspur,No,No,5,Passeriformes (Sparrows and finches)
+Lark Sparrow,No,No,5,Passeriformes (Sparrows and finches)
+Lincolns Sparrow,No,No,5,Passeriformes (Sparrows and finches)
+Northern Cardinal,Yes,Yes,5,Passeriformes (Sparrows and finches)
+Pine Siskin,No,Yes,5,Passeriformes (Sparrows and finches)
+Purple Finch,Yes,Yes,5,Passeriformes (Sparrows and finches)
+Redpoll,No,No,5,Passeriformes (Sparrows and finches)
+Rose-breasted Grosbeak,Yes,Yes,5,Passeriformes (Sparrows and finches)
+Savannah Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Scarlet Tanager,Yes,Yes,5,Passeriformes (Sparrows and finches)
+Snow Bunting,No,No,5,Passeriformes (Sparrows and finches)
+Song Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Swamp Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+Vesper Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+White-crowned Sparrow,No,No,5,Passeriformes (Sparrows and finches)
+White-throated Sparrow,No,Yes,5,Passeriformes (Sparrows and finches)
+American Crow,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+American Robin,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Baltimore Oriole,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Blue Jay,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Bobolink,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Brown Thrasher,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Brown-headed Cowbird,Yes,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Common Grackle,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Common Raven,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Eastern Bluebird,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Eastern Meadowlark,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+European Starling,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Gray Catbird,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Gray-cheeked Thrush,No,No,6,Passeriformes (Blackbirds and Thrushes)
+Hermit Thrush,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Horned Lark,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Northern Mockingbird,No,No,6,Passeriformes (Blackbirds and Thrushes)
+Orchard Oriole,No,No,6,Passeriformes (Blackbirds and Thrushes)
+Red-winged Blackbird,Yes,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Rusty Blackbird,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Swainson's Thrush,No,No,6,Passeriformes (Blackbirds and Thrushes)
+Veery,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Western Meadowlark,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Wood Thrush,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+Yellow-headed Blackbird,No,Yes,6,Passeriformes (Blackbirds and Thrushes)
+American Herring Gull,No,No,7,Charadriiformes
+American Woodcock,No,Yes,7,Charadriiformes
+Black Tern,No,No,7,Charadriiformes
+Black-necked Stilt,No,No,7,Charadriiformes
+Bonapartes Gull,No,No,7,Charadriiformes
+Caspian Tern,No,No,7,Charadriiformes
+Common Tern,No,No,7,Charadriiformes
+Dunlin,No,No,7,Charadriiformes
+Forsters Tern,No,No,7,Charadriiformes
+Glaucous Gull,No,No,7,Charadriiformes
+Great Black-backed Gull,No,No,7,Charadriiformes
+Greater Yellowlegs,No,Yes,7,Charadriiformes
+Killdeer,No,Yes,7,Charadriiformes
+Least Sandpiper,No,No,7,Charadriiformes
+Lesser Yellowlegs,No,Yes,7,Charadriiformes
+Pectoral Sandpiper,No,No,7,Charadriiformes
+Ring-billed Gull,No,No,7,Charadriiformes
+Ruddy Turnstone,No,No,7,Charadriiformes
+Semipalmated Plover,No,No,7,Charadriiformes
+Semipalmated Sandpiper,No,No,7,Charadriiformes
+Short-billed Dowitcher,No,No,7,Charadriiformes
+Solitary Sandpiper,No,Yes,7,Charadriiformes
+Spotted Sandpiper,No,Yes,7,Charadriiformes
+Upland Sandpiper,No,Yes,7,Charadriiformes
+Wilsons Phalarope,No,No,7,Charadriiformes
+Wilsons Snipe,No,Yes,7,Charadriiformes
+Acadian Flycatcher,No,Yes,9,Woodpeckers and more
+Alder Flycatcher,No,Yes,9,Woodpeckers and more
+Belted Kingfisher,Yes,Yes,9,Woodpeckers and more
+Cedar Waxwing,No,Yes,9,Woodpeckers and more
+Chimney Swift,No,Yes,9,Woodpeckers and more
+Common Nighthawk,No,Yes,9,Woodpeckers and more
+Downy Woodpecker,Yes,Yes,9,Woodpeckers and more
+Eastern Kingbird,No,Yes,9,Woodpeckers and more
+Eastern Phoebe,No,Yes,9,Woodpeckers and more
+Eastern Whip-poor-will,No,Yes,9,Woodpeckers and more
+Eastern Wood-Pewee,No,Yes,9,Woodpeckers and more
+Great Crested Flycatcher,No,Yes,9,Woodpeckers and more
+Hairy Woodpecker,Yes,Yes,9,Woodpeckers and more
+Least Flycatcher,No,Yes,9,Woodpeckers and more
+Northern Flicker,Yes,Yes,9,Woodpeckers and more
+Olive-sided Flycatcher,No,Yes,9,Woodpeckers and more
+Pileated Woodpecker,Yes,Yes,9,Woodpeckers and more
+Red-bellied Woodpecker,Yes,Yes,9,Woodpeckers and more
+Red-headed Woodpecker,No,Yes,9,Woodpeckers and more
+Ruby-throated Hummingbird,Yes,No,9,Woodpeckers and more
+Willow Flycatcher,No,Yes,9,Woodpeckers and more
+Yellow-bellied Flycatcher,No,No,9,Woodpeckers and more
+Yellow-bellied Sapsucker,Yes,Yes,9,Woodpeckers and more
+American Pipit,No,No,10,Cuckoos and more
+Bank Swallow,No,No,10,Cuckoos and more
+Barn Swallow,No,Yes,10,Cuckoos and more
+Black-billed Cuckoo,No,Yes,10,Cuckoos and more
+Blue-gray Gnatcatcher,No,Yes,10,Cuckoos and more
+Blue-headed Vireo,No,Yes,10,Cuckoos and more
+Carolina Wren,No,Yes,10,Cuckoos and more
+Cliff Swallow,No,No,10,Cuckoos and more
+Eastern Warbling Vireo,No,Yes,10,Cuckoos and more
+Golden-crowned Kinglet,No,Yes,10,Cuckoos and more
+Marsh Wren,No,Yes,10,Cuckoos and more
+Northern House Wren,No,Yes,10,Cuckoos and more
+Northern Rough-winged Swallow,No,Yes,10,Cuckoos and more
+Philadelphia Vireo,No,No,10,Cuckoos and more
+Purple Martin,No,Yes,10,Cuckoos and more
+Red-eyed Vireo,No,Yes,10,Cuckoos and more
+Ruby-crowned Kinglet,No,Yes,10,Cuckoos and more
+Sedge Wren,No,Yes,10,Cuckoos and more
+Tree Swallow,No,Yes,10,Cuckoos and more
+Winter Wren,No,Yes,10,Cuckoos and more
+Yellow-billed Cuckoo,No,Yes,10,Cuckoos and more
+Yellow-throated Vireo,No,Yes,10,Cuckoos and more
+Black-and-white Warbler,No,Yes,12,Warblers part 1
+Blackpoll Warbler,No,No,12,Warblers part 1
+Blue-winged Warbler,No,Yes,12,Warblers part 1
+Canada Warbler,No,Yes,12,Warblers part 1
+Common Yellowthroat,No,Yes,12,Warblers part 1
+Golden-winged Warbler,No,Yes,12,Warblers part 1
+Louisiana Waterthrush,No,Yes,12,Warblers part 1
+Northern Waterthrush,No,Yes,12,Warblers part 1
+Ovenbird,No,Yes,12,Warblers part 1
+Palm Warbler,No,No,12,Warblers part 1
+Pine Warbler,No,Yes,12,Warblers part 1
+Prothonotary Warbler,No,Yes,12,Warblers part 1
+Yellow Warbler,No,Yes,12,Warblers part 1
+Yellow-rumped Warbler,No,Yes,12,Warblers part 1
+American Redstart,Yes,Yes,13,Warblers part 2
+Blackburnian Warbler,No,Yes,13,Warblers part 2
+Black-throated Blue Warbler,No,No,13,Warblers part 2
+Black-throated Green Warbler,No,Yes,13,Warblers part 2
+Cape May Warbler,No,No,13,Warblers part 2
+Magnolia Warbler,No,Yes,13,Warblers part 2
+Nashville Warbler,No,Yes,13,Warblers part 2
+Northern Parula,No,Yes,13,Warblers part 2
+Orange-crowned Warbler,No,No,13,Warblers part 2
+Tennessee Warbler,No,Yes,13,Warblers part 2
+Connecticut Warbler,No,No,13,Warblers part 2
+Mourning Warbler,No,No,13,Warblers part 2
+Hooded Warbler,No,No,13,Warblers part 2
+Cerulean Warbler,No,Yes,13,Warblers part 2
+Bay-breasted Warbler,No,No,13,Warblers part 2
+Chestnut-sided Warbler,No,Yes,13,Warblers part 2
+Wilsons Warbler,No,No,13,Warblers part 2
