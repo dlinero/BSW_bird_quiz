@@ -293,7 +293,7 @@ Both pictures and sounds will open in your default browser. Here are a few examp
 
 ### Example 1: Pictures of all Week 1 birds (winter residents) with a reduced test.
 
-```{r, eval=FALSE}
+```{r}
 bird_quiz(list_file, weeks = 1, mode = "pictures", reduced_test = TRUE, results_pics = results_pics)
 ```
 
@@ -307,7 +307,7 @@ results_sounds = scrape_sounds(list_file, weeks = 1:3)
 
 ```
 
-```{r, eval=FALSE}
+```{r}
 # Run quiz
 bird_quiz(list_file, weeks = 1:3, mode = "sounds", results_sounds = results_sounds)
 ```
@@ -323,12 +323,12 @@ results_sounds = scrape_sounds(list_file, weeks = 1:13)
 
 ```
 
-```{r, eval=FALSE}
+```{r}
 # Pictures
 bird_quiz(list_file, weeks = 1:13, mode = "pictures", reduced_test = FALSE, results_pics = results_pics)
 ```
 
-```{r, eval=FALSE}
+```{r}
 # Sounds
 bird_quiz(list_file, weeks = 1:3, mode = "sounds", results_sounds = results_sounds)
 ```
@@ -361,3 +361,4 @@ and any applicable third-party terms when using this script.
 
 This project is **not affiliated with, endorsed by, or sponsored by**
 the Cornell Lab of Ornithology.
+
