@@ -14,7 +14,11 @@ To use this script, download the `species_list.csv` file and the R Markdown file
 Then, open the R Markdown file in RStudio and follow the step-by-step instructions provided in the document.
 
 
-<p align="center">▶️ <strong>Watch the tutorial on YouTube</strong></p>
+<p align="center">
+  ▶️ <strong><a href="https://youtu.be/FprSs1eyI70" target="_blank">
+    Watch the tutorial on YouTube
+  </a></strong>
+</p>
 
 <p align="center">
   <a href="https://youtu.be/FprSs1eyI70">
