@@ -13,7 +13,15 @@ This R script was developed as a study tool for students in the Birds of Souther
 To use this script, download the `species_list.csv` file and the R Markdown file (`bird_id_quiz.Rmd`) and place them in the **same folder** on your computer.
 Then, open the R Markdown file in RStudio and follow the step-by-step instructions provided in the document.
 
-[![Bird ID Quiz in R: Tutorial](assets/video_thumbnail.png)](https://youtu.be/FprSs1eyI70)
+
+<p align="center">▶️ <strong>Watch the tutorial on YouTube</strong></p>
+
+<p align="center">
+  <a href="https://youtu.be/FprSs1eyI70">
+    <img src="video_thumbnail.png" alt="Bird ID Quiz in R: Tutorial"
+         width="500">
+  </a>
+</p>
 
 # Credits
 
