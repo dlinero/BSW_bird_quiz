@@ -5,10 +5,15 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# BEFORE RUNNING ANY OF THE CODE BELOW, PLEASE COPY THE FOLLOWING IN YOUR RSTUDIO CONSOLE
 
+::: {style="color: red; font-family: monospace; white-space: pre;"}
+if (!requireNamespace("knitr", quietly = TRUE)) {
+install.packages("knitr")}
+
+if (!requireNamespace("rmarkdown", quietly = TRUE)) {
+install.packages("rmarkdown")}
+:::
 
 # Bird Quiz (Photos + Sounds)
 
@@ -21,6 +26,10 @@ This R script was developed as a study tool for students in the Birds of Souther
 > ⚠️ Note: This script opens content in your browser and has only been tested with Google Chrome.
 
 ## 1. First, we will load the libraries necessary to run the code and install them if you don’t have them already.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ```{r, message=FALSE, warning=FALSE}
 # List of required packages
@@ -361,4 +370,5 @@ and any applicable third-party terms when using this script.
 
 This project is **not affiliated with, endorsed by, or sponsored by**
 the Cornell Lab of Ornithology.
+
 
